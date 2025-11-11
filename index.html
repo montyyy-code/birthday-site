@@ -32,23 +32,40 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #8e44ad;
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
       clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* форма бриллианта */
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* добавим тень */
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), inset 0 0 25px rgba(255, 255, 255, 0.5);
       transform: scale(1);
       transition: transform 0.5s ease, box-shadow 0.5s ease;
+      border-radius: 10px;
+      background-size: 400% 400%;
+      animation: shimmer 2s infinite linear;
     }
 
     .diamond-btn:hover {
-      transform: scale(1.1); /* увеличение при наведении */
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); /* увеличиваем тень при наведении */
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.8), inset 0 0 40px rgba(0, 255, 255, 0.8);
     }
 
     .diamond-btn span {
       font-size: 24px;
       color: white;
       font-weight: bold;
+      z-index: 10;
+    }
+
+    /* Добавляем анимацию сияния */
+    @keyframes shimmer {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     .card {
@@ -89,6 +106,7 @@
       font-weight: 500;
       margin-bottom: 20px;
     }
+
   </style>
 </head>
 <body>
@@ -98,7 +116,7 @@
 
   <div class="card" id="card">
     <h2>С Днём Рождения, дядя Саша!</h2>
-    <img src="vladpht.jpg" alt="Фото" />
+    <img src="твоё_фото.jpg" alt="Фото" />
     <p>Желаю счастья, здоровья и радости!</p>
   </div>
 
