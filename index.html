@@ -39,11 +39,8 @@
       transform: scale(1);
       transition: transform 0.5s ease, box-shadow 0.5s ease;
       border-radius: 10px;
-    }
-
-    .diamond-btn:hover {
-      transform: scale(1.1); /* увеличение при наведении */
-      box-shadow: 0 0 40px rgba(0, 255, 255, 0.8), inset 0 0 40px rgba(0, 255, 255, 0.8);
+      opacity: 1;
+      animation: shimmer 2s infinite linear;
     }
 
     .diamond-btn span {
@@ -51,6 +48,11 @@
       color: white;
       font-weight: bold;
       z-index: 10;
+      transition: color 0.5s ease; /* плавное изменение цвета */
+    }
+
+    .diamond-btn:hover span {
+      color: #ddd; /* Темнеем текст при наведении */
     }
 
     /* Добавляем анимацию сияния */
@@ -105,6 +107,12 @@
       margin-bottom: 20px;
     }
 
+    /* Эффект для бриллианта при клике */
+    .diamond-btn.clicked {
+      transform: scale(1.2); /* увеличиваем бриллиант */
+      opacity: 0.9;
+    }
+
   </style>
 </head>
 <body>
@@ -120,10 +128,17 @@
 
   <script>
     function openCard() {
-      document.querySelector('.diamond-btn').style.display = 'none';
-      let card = document.querySelector('#card');
-      card.style.display = 'block';
-      setTimeout(() => card.classList.add('show'), 10);
+      // Применяем класс, чтобы увеличить бриллиант и изменить его стиль
+      const diamond = document.querySelector('.diamond-btn');
+      diamond.classList.add('clicked');
+
+      // Скрываем бриллиант и показываем открытку
+      setTimeout(() => {
+        diamond.style.display = 'none';
+        let card = document.querySelector('#card');
+        card.style.display = 'block';
+        setTimeout(() => card.classList.add('show'), 10);
+      }, 500); // Задержка, чтобы анимация сработала
     }
   </script>
 </body>
