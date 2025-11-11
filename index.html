@@ -33,18 +33,16 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* форма бриллианта */
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), inset 0 0 25px rgba(255, 255, 255, 0.5);
+      background: url('briliantik.jpg') no-repeat center center; /* Используем briliantik.jpg */
+      background-size: contain; /* сохраняем пропорции */
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
       transform: scale(1);
       transition: transform 0.5s ease, box-shadow 0.5s ease;
       border-radius: 10px;
-      background-size: 400% 400%;
-      animation: shimmer 2s infinite linear;
     }
 
     .diamond-btn:hover {
-      transform: scale(1.1);
+      transform: scale(1.1); /* увеличение при наведении */
       box-shadow: 0 0 40px rgba(0, 255, 255, 0.8), inset 0 0 40px rgba(0, 255, 255, 0.8);
     }
 
@@ -116,7 +114,7 @@
 
   <div class="card" id="card">
     <h2>С Днём Рождения, дядя Саша!</h2>
-    <img src="твоё_фото.jpg" alt="Фото" />
+    <img src="vladpht.jpg" alt="Фото" /> <!-- Путь к твоему фото -->
     <p>Желаю счастья, здоровья и радости!</p>
   </div>
 
