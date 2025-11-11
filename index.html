@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>С Днём Рождения!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f3f3f3;
+      font-family: Arial, sans-serif;
+    }
+
+    .diamond {
+      width: 200px;
+      height: 200px;
+      background-color: #8e44ad;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .diamond:hover {
+      transform: scale(1.1);
+    }
+
+    .card {
+      display: none;
+      text-align: center;
+      font-size: 24px;
+      color: #2c3e50;
+      max-width: 400px;
+      margin: 20px;
+    }
+
+    .card img {
+      border-radius: 10px;
+      margin-top: 20px;
+      width: 200px;
+    }
+
+    .card h2 {
+      color: #3498db;
+    }
+  </style>
+</head>
+<body>
+  <div class="diamond" onclick="openCard()">Нажми на алмаз</div>
+  <div class="card" id="card">
+    <h2>С Днём Рождения, дядя Саша!</h2>
+    <img src=""vladpht.jpg"" alt="Фото" />
+    <p>Желаю счастья, здоровья и радости!</p>
+  </div>
+
+  <script>
+    function openCard() {
+      // Прячем алмаз и показываем открытку
+      document.querySelector('.diamond').style.display = 'none';
+      document.querySelector('#card').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
