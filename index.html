@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>С Днём Рождения, дядя Саша!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -12,49 +13,89 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f3f3f3;
-      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6e7bff, #4a90e2); /* градиентный фон */
+      font-family: 'Poppins', sans-serif;
       text-align: center;
+      overflow: hidden;
     }
 
-    .diamond {
-      width: 300px;
-      height: 300px;
+    h2 {
+      color: #fff;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .diamond-btn {
+      width: 250px;
+      height: 250px;
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: #8e44ad;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* форма бриллианта */
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Тень для эффекта */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* добавим тень */
+      transform: scale(1);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
-    .diamond img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+    .diamond-btn:hover {
+      transform: scale(1.1); /* увеличение при наведении */
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); /* увеличиваем тень при наведении */
+    }
+
+    .diamond-btn span {
+      font-size: 24px;
+      color: white;
+      font-weight: bold;
     }
 
     .card {
       display: none;
       text-align: center;
       font-size: 24px;
-      color: #2c3e50;
-      max-width: 400px;
-      margin: 20px;
+      color: #ffffff;
+      max-width: 450px;
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
       opacity: 0;
-      transition: opacity 0.5s ease-in-out;
+      transition: opacity 0.7s ease-in-out;
     }
 
     .card.show {
       opacity: 1;
     }
 
+    .card img {
+      margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%; /* Картинка круглой */
+      border: 5px solid #fff;
+    }
+
+    .card p {
+      font-size: 20px;
+      color: #e4e4e4;
+    }
+
+    /* Анимация для текста */
+    .card h2 {
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
-  <div class="diamond" onclick="openCard()">
-    <img src="diamond.png" alt="Бриллиант" />
+  <div class="diamond-btn" onclick="openCard()">
+    <span>Нажми на бриллиант</span>
   </div>
+
   <div class="card" id="card">
     <h2>С Днём Рождения, дядя Саша!</h2>
     <img src="vladpht.jpg" alt="Фото" />
@@ -63,7 +104,7 @@
 
   <script>
     function openCard() {
-      document.querySelector('.diamond').style.display = 'none';
+      document.querySelector('.diamond-btn').style.display = 'none';
       let card = document.querySelector('#card');
       card.style.display = 'block';
       setTimeout(() => card.classList.add('show'), 10);
